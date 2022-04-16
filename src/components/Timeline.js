@@ -7,7 +7,7 @@ export default function TimeLine({ classNames }) {
 
       <Timeline
         className="w-max relative m-auto"
-        active={1}
+        active={0}
         bulletSize={24}
         lineWidth={2}
       >

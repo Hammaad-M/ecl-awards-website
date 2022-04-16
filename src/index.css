@@ -35,7 +35,7 @@ body {
     animation: slide-left 80s linear infinite;
   }
   .bg-outline span {
-    -webkit-text-stroke: 2px blue;
+    -webkit-text-stroke: 2px rgb(37 99 235);
     color: transparent;
   }
   @keyframes slide-right {

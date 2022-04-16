@@ -29,7 +29,7 @@ const Hero = () => {
             }
           >
             {cols.map(() => (
-              <span className="text-blue-500 m-2">MCNA AWARDS</span>
+              <span className="text-blue-600 m-2">MCNA AWARDS</span>
             ))}
           </h2>
         ))}
