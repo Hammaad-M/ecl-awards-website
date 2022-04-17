@@ -102,7 +102,7 @@ const Nominations = () => {
       <TextInput
         label="Nominee Phone Number:"
         placeholder="100-100-1000"
-        type="email"
+        type="tel"
         required={true}
         classNames={classes}
       />
