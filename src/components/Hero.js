@@ -1,4 +1,3 @@
-import { getSpaceUntilMaxLength } from "@testing-library/user-event/dist/utils";
 import React from "react";
 
 const Hero = () => {
@@ -14,7 +13,7 @@ const Hero = () => {
   const cols = fillArray(new Array(30));
   const getAnim = (i) => (i % 2 === 0 ? " slide-right " : " slide-left ");
   const getTextStyle = (i) => (i % 2 === 0 ? "bg-bold" : "bg-outline");
-  console.log(rows, cols);
+
   return (
     <section className="hero w-full overflow-hidden relative">
       <div
@@ -40,9 +39,7 @@ const Hero = () => {
         </h1>
         <h2 className="text-xl my-3 sm:my-4">MCNA Awards</h2>
         <a href="#nominations">
-          <button className="bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg">
-            Nominate
-          </button>
+          <button className="btn-primary">Nominate</button>
         </a>
       </div>
     </section>

@@ -76,8 +76,14 @@ body {
   .section {
     @apply p-5 sm:p-10 lg:px-12 py-8;
   }
+  .btn-primary {
+    @apply bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg;
+  }
   .hero {
     height: calc(100vh - 12em);
+  }
+  .mantine-List-item {
+    @apply my-0.5 md:my-1 lg:my-1.5;
   }
   @media only screen and (min-width: 1024px) {
     .hero {
