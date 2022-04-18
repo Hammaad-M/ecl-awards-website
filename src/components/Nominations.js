@@ -48,34 +48,45 @@ const Nominations = () => {
       className="section mb-48 sm:px-14 md:px-24 lg:px-36"
     >
       <h1 className="heading">Nominations</h1>
-      <List
-        size="sm"
-        icon={
-          <ThemeIcon color="rgb(37 99 235)" size={24} radius="xl">
-            <Check />
-          </ThemeIcon>
-        }
-      >
-        <List.Item>Nominees must live or work on the Eastside.</List.Item>
-        <List.Item>
-          Nominees have inspired others through either their work, volunteerism,
-          or advocacy efforts with diverse or underrepresented communities. This
-          work is not limited to those serving through nonprofit organizations.{" "}
-        </List.Item>
-        <List.Item>
-          {" "}
-          Nominees take the initiative to engage in positive action, especially
-          in times of need.{" "}
-        </List.Item>
-        <List.Item>
-          Nominees deployed creative or innovative solutions or ways to impact
-          change.{" "}
-        </List.Item>{" "}
-        <List.Item>
-          Nominees' actions have the potential to result in long lasting
-          positive change.
-        </List.Item>
-      </List>
+      <p className="desc text-left">
+        <h3>Nomination Guidelines</h3>
+        <List
+          size="sm"
+          icon={
+            <ThemeIcon color="rgb(37 99 235)" size={24} radius="xl">
+              <Check />
+            </ThemeIcon>
+          }
+        >
+          <List.Item>Nominees must live or work on the Eastside.</List.Item>
+          <List.Item>
+            Nominees have inspired others through either their work,
+            volunteerism, or advocacy efforts with diverse or underrepresented
+            communities. This work is not limited to those serving through
+            nonprofit organizations.{" "}
+          </List.Item>
+          <List.Item>
+            {" "}
+            Nominees take the initiative to engage in positive action,
+            especially in times of need.{" "}
+          </List.Item>
+          <List.Item>
+            Nominees deployed creative or innovative solutions or ways to impact
+            change.{" "}
+          </List.Item>{" "}
+          <List.Item>
+            Nominees' actions have the potential to result in long lasting
+            positive change.
+          </List.Item>
+        </List>
+      </p>
+      <p className="desc text-left">
+        <h3>Nomination Process</h3>
+        Nominations may be self-nominations or submitted on behalf of another
+        individual or group. Nominating someone for this award can be done
+        online using the below form, verbally via Google Voice number, or on
+        paper by submitting a simple form with the following questions:
+      </p>
       <Select
         style={{ marginTop: 20, zIndex: 2 }}
         data={["Individually", "In an Organization"]}

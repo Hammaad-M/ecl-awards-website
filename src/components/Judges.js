@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import FeaturesCard from "./Card";
 
 const Judges = () => {
-  const judges = [
+  const [judges, setJudges] = useState([
     {
       name: "John Doe",
       image: { src: "images/1.jpg", alt: "judge" },
@@ -33,7 +33,7 @@ const Judges = () => {
       label: "First Year",
       desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, autem",
     },
-  ];
+  ]);
   return (
     <section className="section " id="judges">
       <h1 className="heading">Partner Judges</h1>

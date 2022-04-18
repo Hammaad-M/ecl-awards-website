@@ -61,7 +61,10 @@ body {
     @apply text-2xl font-bold text-blue-600 text-center my-4 sm:text-3xl;
   }
   .desc {
-    @apply text-sm text-center my-2 sm:text-base;
+    @apply text-sm text-left my-4 sm:text-base;
+  }
+  .desc h3 {
+    @apply text-base font-semibold my-1 sm:text-lg;
   }
   .section {
     @apply p-5 sm:p-10 lg:px-12 py-8;
