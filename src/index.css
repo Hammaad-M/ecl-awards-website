@@ -74,7 +74,8 @@ body {
   }
   .hero {
     height: calc(100vh - 12em);
-    min-height: 28em;
+    min-height: 30em;
+    max-height: 38em;
   }
   .mantine-List-item {
     @apply my-0.5 md:my-1 lg:my-1.5;
