@@ -28,7 +28,9 @@ const Hero = () => {
             }
           >
             {cols.map(() => (
-              <span className="text-blue-600 m-2">MCNA AWARDS</span>
+              <span className="text-blue-600 m-2">
+                Eastside Civic Leadership Awards
+              </span>
             ))}
           </h2>
         ))}
@@ -37,7 +39,9 @@ const Hero = () => {
         <h1 className="text-3xl font-bold sm:text-4xl">
           Recognizing Civic Engagement
         </h1>
-        <h2 className="text-xl my-3 sm:my-4">MCNA Awards</h2>
+        <h2 className="text-xl my-3 sm:my-4">
+          Eastside Civic Leadership Awards
+        </h2>
         <a href="#nominations">
           <button className="btn-primary">Nominate</button>
         </a>

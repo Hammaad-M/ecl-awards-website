@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useInput } from "./useInput";
 import {
   createStyles,
   Select,
@@ -9,6 +10,7 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { Check } from "tabler-icons-react";
+import ControlledTextarea from "./ControlledTextarea";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -34,6 +36,11 @@ const useStyles = createStyles((theme) => ({
 const Nominations = () => {
   // You can add these classes as classNames to any Mantine input, it will work the same
   const { classes } = useStyles();
+
+  const [nameProps, resetName] = useInput("");
+  const [emailProps, resetEmail] = useInput("");
+  const [nominatorEmailProps, resetNominatorEmail] = useInput("");
+  const [telProps, resetTel] = useInput("");
 
   return (
     <section
@@ -69,7 +76,6 @@ const Nominations = () => {
           positive change.
         </List.Item>
       </List>
-
       <Select
         style={{ marginTop: 20, zIndex: 2 }}
         data={["Individually", "In an Organization"]}
@@ -79,12 +85,12 @@ const Nominations = () => {
         name="role-select"
         classNames={classes}
       />
-
       <TextInput
         label="Nominee Name"
         placeholder=""
         classNames={classes}
         required={true}
+        {...nameProps}
       />
       <TextInput
         label="What is the nominee's Race or Ethnicity?"
@@ -98,6 +104,7 @@ const Nominations = () => {
         type="email"
         required={true}
         classNames={classes}
+        {...emailProps}
       />
       <TextInput
         label="Nominee Phone Number:"
@@ -105,8 +112,16 @@ const Nominations = () => {
         type="tel"
         required={true}
         classNames={classes}
+        {...telProps}
       />
-
+      <TextInput
+        label="Nominator Email (if not self-nominating):"
+        placeholder=""
+        type="email"
+        required={false}
+        classNames={classes}
+        {...nominatorEmailProps}
+      />
       <MultiSelect
         data={[
           { value: "Lives", label: "Lives" },
@@ -117,7 +132,32 @@ const Nominations = () => {
         label="This program is focused on highlighting civic leadership in East King County. Does the nominee live, volunteer, or work in any of the East King County cities?"
         placeholder="Select all that apply."
       />
-      <Center className="sm:mt-6">
+
+      <ControlledTextarea
+        maxLength={375}
+        className="my-3"
+        placeholder="Maximum 375 words."
+        label="Provide 1 - 3 recent examples that occurred within the past two years of
+      how the nominee demonstrated civic leadership, improved the quality of
+      life in a community, or worked to alleviate a specific community concern.
+      Please be sure to describe why this person’s efforts inspired you or are
+      having a positive impact."
+        required
+      />
+      <ControlledTextarea
+        maxLength={200}
+        className="my-3"
+        required
+        placeholder="Maximum 200 words."
+        label="Provide 1-3 sentences that describe this person’s exceptional character or traits. "
+      />
+      <ControlledTextarea
+        className="my-3"
+        maxLength={100}
+        placeholder="Maximum 100 words"
+        label="Anything else you’d like to share about the nominee that will help with our decision making process? "
+      />
+      <Center className="mt-3 sm:mt-6">
         <button className="btn-primary">Submit</button>
       </Center>
     </section>

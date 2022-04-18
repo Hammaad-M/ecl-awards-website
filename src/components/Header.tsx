@@ -124,7 +124,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
       className={classes.root + " w-full mb-0"}
     >
       <Container className={classes.header}>
-        <img src="logo.webp" alt="MCNA logo" className="w-14"></img>
+        <h1>Eastside Civic Leadership Awards</h1>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
