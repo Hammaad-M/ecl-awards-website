@@ -4,6 +4,10 @@ This project was developed with [Create React App](https://github.com/facebook/c
 
 ## Available Scripts
 
+Find and edit the "SITEDATA.js" file in the "src" folder to update the website content.
+
+## Available Scripts
+
 In the project directory, you can run:
 
 ### `npm start`
