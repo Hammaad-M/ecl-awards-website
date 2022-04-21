@@ -1,5 +1,3 @@
-import React from "react";
-
 const heroPageContent = {
   heading: "Recognizing Civic Engagement",
   subheading: "Eastside Civic Leadership Awards",
