@@ -33,7 +33,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Nominations = () => {
+const Nominations = ({ content }) => {
   // You can add these classes as classNames to any Mantine input, it will work the same
   const { classes } = useStyles();
 
@@ -47,7 +47,7 @@ const Nominations = () => {
       id="nominations"
       className="section mb-48 sm:px-14 md:px-24 lg:px-36"
     >
-      <h1 className="heading">Nominations</h1>
+      <h1 className="heading">{content.heading}s</h1>
       <p className="desc text-left">
         <h3>Nomination Guidelines</h3>
         <List
@@ -58,35 +58,17 @@ const Nominations = () => {
             </ThemeIcon>
           }
         >
-          <List.Item>Nominees must live or work on the Eastside.</List.Item>
-          <List.Item>
-            Nominees have inspired others through either their work,
-            volunteerism, or advocacy efforts with diverse or underrepresented
-            communities. This work is not limited to those serving through
-            nonprofit organizations.{" "}
-          </List.Item>
-          <List.Item>
-            {" "}
-            Nominees take the initiative to engage in positive action,
-            especially in times of need.{" "}
-          </List.Item>
-          <List.Item>
-            Nominees deployed creative or innovative solutions or ways to impact
-            change.{" "}
-          </List.Item>{" "}
-          <List.Item>
-            Nominees' actions have the potential to result in long lasting
-            positive change.
-          </List.Item>
+          {content.guidelines.map((g) => (
+            <List.Item>{g}</List.Item>
+          ))}
         </List>
       </p>
-      <p className="desc text-left">
-        <h3>Nomination Process</h3>
-        Nominations may be self-nominations or submitted on behalf of another
-        individual or group. Nominating someone for this award can be done
-        online using the below form, verbally via Google Voice number, or on
-        paper by submitting a simple form with the following questions:
-      </p>
+      {content.sections.map((s) => (
+        <p className="desc">
+          <h3>{s.heading}</h3>
+          {s.description}
+        </p>
+      ))}
       <Select
         style={{ marginTop: 20, zIndex: 2 }}
         data={["Individually", "In an Organization"]}
