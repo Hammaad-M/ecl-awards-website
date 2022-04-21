@@ -53,7 +53,7 @@ const Nominations = () => {
         <List
           size="sm"
           icon={
-            <ThemeIcon color="rgb(37 99 235)" size={24} radius="xl">
+            <ThemeIcon color="#2563eb" size={24} radius="xl">
               <Check />
             </ThemeIcon>
           }

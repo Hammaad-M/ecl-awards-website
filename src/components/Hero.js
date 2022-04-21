@@ -1,50 +1,23 @@
 import React from "react";
 
-const Hero = () => {
-  const fillArray = (arr) => {
-    let result = [];
-    for (let i = 0; i < arr.length; i++) {
-      result.push(i + 1);
-    }
-    return result;
-  };
-
-  const rows = fillArray(new Array(30));
-  const cols = fillArray(new Array(30));
-  const getAnim = (i) => (i % 2 === 0 ? " slide-right " : " slide-left ");
-  const getTextStyle = (i) => (i % 2 === 0 ? "bg-bold" : "bg-outline");
-
+const Hero = ({ contentRef, content }) => {
   return (
     <section className="hero w-full overflow-hidden relative">
-      <div
-        //
-        className="sliding-text absolute w-full"
-      >
-        {rows.map((e, i) => (
-          <h2
-            // style={{ "--slide-duration": i % 2 === 0 ? "20s" : "12s" }}
-            className={
-              "w-full relative text-5xl " + getAnim(i) + getTextStyle(i)
-            }
-          >
-            {cols.map(() => (
-              <span className="text-blue-600 m-2">
-                Eastside Civic Leadership Awards
-              </span>
-            ))}
-          </h2>
-        ))}
-      </div>
-      <div className="w-[90%] text-center p-12 rounded-lg bg-white border-none relative m-auto mt-20 sm:w-4/6">
-        <h1 className="text-3xl font-bold sm:text-4xl">
-          Recognizing Civic Engagement
+      <div className="animated-bg absolute h-full"></div>
+      <div className="shadow-md hero-wrapper w-[90%] text-center p-12 rounded-lg bg-white border-none relative m-auto mt-20 sm:w-4/6">
+        <h1
+          ref={contentRef}
+          className="hero-heading text-3xl font-bold sm:text-4xl"
+        >
+          {content.heading}
         </h1>
-        <h2 className="text-xl my-3 sm:my-4">
-          Eastside Civic Leadership Awards
-        </h2>
+        <h2 className="text-xl my-3 sm:my-4">{content.subheading}</h2>
         <a href="#nominations">
           <button className="btn-primary">Nominate</button>
         </a>
+      </div>
+      <div className="mt-6 sm:mt-8 mb-3 w-max py-1 px-0.5 slider-wrapper rounded-full bg-white relative m-auto ">
+        <div className="slider bg-blue-600 p-2 rounded-full"></div>
       </div>
     </section>
   );

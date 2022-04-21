@@ -6,8 +6,8 @@ const ControlledTextarea = ({ maxLength, ...props }) => {
   const [feedbackError, setFeedbackError] = useState(false);
 
   useEffect(() => {
-    if (feedback.replace(" ", "").length > maxLength) {
-      setFeedbackError("Maximum length is " + maxLength);
+    if (feedback.split(" ").length > maxLength) {
+      setFeedbackError("Maximum length is " + maxLength + " words.");
     } else if (feedbackError !== false) {
       setFeedbackError(false);
     }

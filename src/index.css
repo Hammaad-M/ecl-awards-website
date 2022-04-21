@@ -20,7 +20,7 @@ body {
 @layer base {
   .sliding-text {
     position: relative;
-    transform: skewY(345deg) translateY(-200px) translateX(-500px);
+    transform: skewY(3to left bottom) translateY(-200px) translateX(-500px);
     font-weight: 700;
   }
   .sliding-text h2 {
@@ -35,9 +35,31 @@ body {
     animation: slide-left 50s linear infinite alternate;
   }
   .bg-outline span {
-    -webkit-text-stroke: 2px rgb(37 99 235);
+    -webkit-text-stroke: 2px #2563eb;
     color: transparent;
   }
+  .animated-bg {
+    background: linear-gradient(
+      to left bottom,
+      #2563eb,
+      #2938d8,
+      #1656bd,
+      #2563eb
+    );
+    width: 100vw;
+    transform: translateX(100%);
+    animation: animated-background 1s 1;
+    transform: translateX(0%);
+  }
+  @keyframes animated-background {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
   @keyframes slide-right {
     0% {
       transform: translateX(0px);
@@ -73,9 +95,9 @@ body {
     @apply bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg;
   }
   .hero {
-    height: calc(100vh - 12em);
+    height: calc(100vh - 9.5em);
     min-height: 30em;
-    max-height: 38em;
+    max-height: 40em;
   }
   .mantine-List-item {
     @apply my-0.5 md:my-1 lg:my-1.5;
@@ -108,6 +130,23 @@ body {
   @media only screen and (min-width: 820px) {
     .card-wrapper {
       height: max-content;
+    }
+  }
+  .slider {
+    animation: bounce 3s infinite;
+  }
+  .slider-wrapper {
+    height: 46px;
+  }
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 }

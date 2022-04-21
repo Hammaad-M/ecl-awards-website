@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+#un-used components
+./src/components/SlidingTextBackground.js
+
 # testing
 /coverage
 
