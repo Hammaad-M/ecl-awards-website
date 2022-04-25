@@ -2,7 +2,7 @@
 
 This project was developed with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Editing Content
 
 Find and edit the "SITEDATA.js" file in the "src" folder to update the website content.
 
