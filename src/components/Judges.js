@@ -1,7 +1,7 @@
 import React from "react";
 import FeaturesCard from "./Card";
 
-const Judges = ({ contentRef, content }) => {
+const Judges = ({ content }) => {
   return (
     <section className="section " id="judges">
       <h1 className="heading">{content.heading}</h1>
@@ -11,7 +11,6 @@ const Judges = ({ contentRef, content }) => {
         {content.cards.map((judge) => (
           <FeaturesCard
             className="card"
-            ref={contentRef}
             name={judge.heading}
             desc={judge.description}
             image={{ src: judge.imagePath, alt: "judge" }}

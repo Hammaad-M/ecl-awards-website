@@ -9,6 +9,8 @@ import {
   Transition,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const HEADER_HEIGHT = 65;
 
@@ -99,7 +101,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
-
+  gsap.registerPlugin(ScrollToPlugin);
   const items = links.map((link) => (
     <a
       key={link.label}
@@ -108,7 +110,8 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
         [classes.linkActive]: active === link.link,
       })}
       onClick={(event) => {
-        //event.preventDefault();
+        event.preventDefault();
+        gsap.to(window, { duration: 1, scrollTo: link.link });
         setActive(link.link);
         toggleOpened(false);
       }}

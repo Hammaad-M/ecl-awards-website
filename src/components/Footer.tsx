@@ -1,5 +1,7 @@
 import React from "react";
 import { createStyles, Container, Group, Anchor } from "@mantine/core";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -33,13 +35,17 @@ interface FooterSimpleProps {
 }
 
 export default function Footer({ links }: FooterSimpleProps) {
+  gsap.registerPlugin(ScrollToPlugin);
   const { classes } = useStyles();
   const items = links.map((link) => (
     <Anchor<"a">
       color="dimmed"
       key={link.label}
       href={link.link}
-      //onClick={(event) => event.preventDefault()}
+      onClick={(event) => {
+        event.preventDefault();
+        gsap.to(window, { duration: 1, scrollTo: link.link });
+      }}
       size="sm"
     >
       {link.label}
@@ -47,7 +53,7 @@ export default function Footer({ links }: FooterSimpleProps) {
   ));
 
   return (
-    <div className={classes.footer}>
+    <div id="footer" className={classes.footer}>
       <Container className={classes.inner}>
         Eastside Civic Leadership Awards
         <Group className={classes.links}>{items}</Group>

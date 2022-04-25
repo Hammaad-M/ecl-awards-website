@@ -15,10 +15,12 @@ export default function FeaturesCard({ name, desc, image, label }) {
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
   return (
-    <div className="card-wrapper">
-      <Card shadow="sm" p="lg">
+    <div className="card-wrapper w-full h-full">
+      <Card className="w-full h-full" shadow="sm" p="lg">
         <Card.Section>
-          <Image src={image.src} height={220} alt={image.alt} />
+          {image.src !== "none" && (
+            <Image src={image.src} height={220} alt={image.alt} />
+          )}
         </Card.Section>
 
         <Group

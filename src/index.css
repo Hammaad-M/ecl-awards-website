@@ -92,7 +92,7 @@ body {
     @apply p-5 sm:p-10 lg:px-12 py-8;
   }
   .btn-primary {
-    @apply bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg;
+    @apply bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg md:px-6;
   }
   .hero {
     height: calc(100vh - 9.5em);

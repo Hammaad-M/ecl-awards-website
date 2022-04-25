@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { HeaderResponsive } from "./components/Header.tsx";
 import Judges from "./components/Judges";
 import Hero from "./components/Hero";
@@ -27,31 +27,29 @@ function App() {
     },
     {
       link: "#judges",
-      label: "Partner Judges",
+      label: "Advisory Committee",
     },
     {
       link: "#nominations",
       label: "Nominations",
     },
   ];
-  const heroContent = useRef();
-  const judgeCards = useRef();
 
   return (
     <>
       <HeaderResponsive links={links} />
-      <Hero content={heroPageContent} contentRef={heroContent} />
+      <Hero content={heroPageContent} />
       <div className="md:grid grid-cols-12 grid-rows-1">
         <Awards
           content={awardsContent}
           classNames="md:col-span-7 lg:col-span-8"
         />
         <TimeLine
-          targetDate={timelineContent.countdownDate}
+          {...timelineContent}
           classNames="md:col-span-5 lg:col-span-4"
         />
       </div>
-      <Judges content={judgesContent} contentRef={judgeCards} />
+      <Judges content={judgesContent} />
       <Nominations content={nominationsContent} />
       <Footer links={links} />
     </>

@@ -7,9 +7,11 @@
 
 #un-used components
 ./src/components/SlidingTextBackground.js
+App-dev.js
 
 # testing
 /coverage
+.npmrc 
 
 # production
 /build
