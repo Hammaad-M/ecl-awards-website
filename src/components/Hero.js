@@ -1,6 +1,9 @@
 import React from "react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const Hero = ({ contentRef, content }) => {
+  gsap.registerPlugin(ScrollToPlugin);
   return (
     <section className="hero w-full overflow-hidden relative">
       <div className="animated-bg absolute h-full"></div>
@@ -12,7 +15,13 @@ const Hero = ({ contentRef, content }) => {
           {content.heading}
         </h1>
         <h2 className="text-xl my-3 sm:my-4">{content.subheading}</h2>
-        <a href="#nominations">
+        <a
+          href="#nominations"
+          onClick={(e) => {
+            e.preventDefault();
+            gsap.to(window, { duration: 1, scrollTo: "#nominations" });
+          }}
+        >
           <button className="btn-primary">Nominate</button>
         </a>
       </div>
