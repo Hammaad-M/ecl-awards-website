@@ -16,7 +16,7 @@ const SlidingTextBackground = ({ text }) => {
   return (
     <div
       //
-      className="sliding-text absolute w-full"
+      className="sliding-text absolute w-full transform -translate-x-96 -translate-y-32 -skew-y-[18deg]"
     >
       {rows.map((e, i) => (
         <h2

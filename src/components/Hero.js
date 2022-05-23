@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import SlidingTextBackground from "./SlidingTextBackground";
+import { fadeIn } from "./animations";
 
 const Hero = ({ contentRef, content }) => {
   gsap.registerPlugin(ScrollToPlugin);
+  const wrapper = useRef(null);
+  useLayoutEffect(() => {
+    const q = gsap.utils.selector(wrapper);
+    fadeIn(q("*"), false);
+  });
   return (
     <section className="hero w-full overflow-hidden relative">
       <div className="animated-bg absolute h-full"></div>
-      <div className="shadow-md hero-wrapper w-[90%] text-center p-12 rounded-lg bg-white border-none relative m-auto mt-20 sm:w-4/6">
+      {/* <SlidingTextBackground text={"EASTSIDE CIVIC LEADERSHIP AWARDS"} /> */}
+      <div
+        ref={wrapper}
+        className="shadow-md hero-wrapper w-[90%] text-center p-12 rounded-lg bg-white border-none relative m-auto mt-20 sm:w-4/6 xl:p-16"
+      >
         <h1
           ref={contentRef}
-          className="hero-heading text-3xl font-bold sm:text-4xl"
+          className="hero-heading text-3xl font-bold sm:text-4xl xl:text-5xl"
         >
           {content.heading}
         </h1>

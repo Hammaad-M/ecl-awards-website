@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useLayoutEffect, useState, useRef } from "react";
 import { useInput } from "./useInput";
 import {
   createStyles,
@@ -11,7 +11,9 @@ import {
 } from "@mantine/core";
 import { Check } from "tabler-icons-react";
 import ControlledTextarea from "./ControlledTextarea";
-
+import { fadeIn, fadeInSmall, rotateInFromLeft } from "./animations";
+import { gsap } from "gsap";
+import FlyInText from "./FlyInText";
 const useStyles = createStyles((theme) => ({
   root: {
     position: "relative",
@@ -41,7 +43,40 @@ const Nominations = ({ content }) => {
   const [emailProps, resetEmail] = useInput("");
   const [nominatorEmailProps, resetNominatorEmail] = useInput("");
   const [telProps, resetTel] = useInput("");
-
+  const listWrapper = useRef(null);
+  const formWrapper = useRef(null);
+  useLayoutEffect(() => {
+    let q = gsap.utils.selector(listWrapper);
+    // q(".animated-text").forEach((e) => fadeIn(e));
+    // q(".animated-text").forEach((e) => fadeIn(e));
+    gsap.from(q("*"), {
+      opacity: 0.01,
+      duration: 0.11,
+      stagger: 0.07,
+      y: 50,
+      ease: "back",
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: q("*"),
+        start: "top 80%",
+      },
+    });
+    q = gsap.utils.selector(formWrapper);
+    // q("*").forEach((e) => fadeInSmall(e, true, 2.25));
+    gsap.from(q("*"), {
+      opacity: 0.01,
+      duration: 0.16,
+      stagger: 0.07,
+      y: 50,
+      ease: "back",
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: q("*"),
+        start: "top bottom",
+      },
+    });
+    // fadeInSmall(q("*"), true, 1.35);
+  });
   // const submit = (e) => {
   //   e.preventDefault();
 
@@ -82,10 +117,13 @@ const Nominations = ({ content }) => {
       id="nominations"
       className="section mb-48 sm:px-14 md:px-24 lg:px-36"
     >
-      <h1 className="heading">{content.heading}</h1>
+      <h1 className="heading">
+        <FlyInText text={content.heading} />
+      </h1>
       <p className="desc text-left">
         <h3>Nomination Guidelines</h3>
         <List
+          ref={listWrapper}
           size="sm"
           icon={
             <ThemeIcon color="#2563eb" size={24} radius="xl">
@@ -94,7 +132,7 @@ const Nominations = ({ content }) => {
           }
         >
           {content.guidelines.map((g) => (
-            <List.Item>{g}</List.Item>
+            <List.Item className="animated-text">{g}</List.Item>
           ))}
         </List>
       </p>
@@ -104,7 +142,7 @@ const Nominations = ({ content }) => {
           {s.description}
         </p>
       ))}
-      <form>
+      <form ref={formWrapper}>
         <Select
           style={{ marginTop: 20, zIndex: 2 }}
           data={["Individually", "In an Organization"]}

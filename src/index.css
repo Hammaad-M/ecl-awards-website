@@ -13,6 +13,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +25,7 @@ body {
 @layer base {
   .sliding-text {
     position: relative;
-    transform: skewY(3to left bottom) translateY(-200px) translateX(-500px);
+    transform: skewY(158deg) translateY(-200px) translateX(-500px);
     font-weight: 700;
   }
   .sliding-text h2 {
@@ -89,7 +94,7 @@ body {
     @apply text-base font-semibold my-1 sm:text-lg;
   }
   .section {
-    @apply p-5 sm:p-10 lg:px-12 py-8;
+    @apply p-5 sm:px-14 md:px-20 lg:px-24 py-8;
   }
   .btn-primary {
     @apply bg-blue-600 text-white text-center rounded-md px-5 py-2 hover:shadow-lg md:px-6;

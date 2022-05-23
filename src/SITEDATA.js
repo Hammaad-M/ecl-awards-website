@@ -58,14 +58,13 @@ const judgesContent = {
       tag: "Eastside for All",
       imagePath: "none",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, autem.",
+        "Eastside Civic Leadership awards judge from Eastside for All.",
     },
     {
       heading: "Kalika Curry",
       tag: "Pono Pursuit",
       imagePath: "none",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, autem.",
+      description: "Eastside Civic Leadership awards judge from Pono Pursuit.",
     },
     {
       heading: "Lalita Uppala",
@@ -83,15 +82,13 @@ const judgesContent = {
       heading: "Monik Martinez",
       tag: "4 Tomorrow",
       imagePath: "none",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, autem.",
+      description: "Eastside Civic Leadership awards judge from 4 Tomorrow.",
     },
     {
       heading: "Pearl Leung",
       tag: "Amazon",
       imagePath: "none",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, autem.",
+      description: "Eastside Civic Leadership awards judge from Amazon.",
     },
   ],
 };

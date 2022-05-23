@@ -1,6 +1,14 @@
 import { Timeline } from "@mantine/core";
-import React, { useEffect, useReducer, useState } from "react";
-
+import React, {
+  useEffect,
+  useReducer,
+  useState,
+  useLayoutEffect,
+  useRef,
+} from "react";
+import { fadeInSmall } from "./animations";
+import { gsap } from "gsap";
+import FlyInText from "./FlyInText";
 export default function TimeLine({
   classNames,
   countdownDates,
@@ -42,28 +50,46 @@ export default function TimeLine({
     countdownDates.map((d) => new Date(d))
   );
   const [countdown, updateCountdown] = useReducer(() => update(), update());
-
+  const timelineWrapper = useRef(null);
+  useLayoutEffect(() => {
+    const q = gsap.utils.selector(timelineWrapper);
+    gsap.from(q("*"), {
+      opacity: 0.01,
+      duration: 0.1,
+      stagger: 0.06,
+      y: 50,
+      ease: "back",
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: q("*"),
+        start: "top 80%",
+      },
+    });
+  }, []);
   useEffect(() => {
     const TID = setInterval(() => updateCountdown(), 1000);
     return () => clearInterval(TID);
   });
 
   return (
-    <section id="timeline" className={"section " + classNames}>
-      <h1 className="heading">Timeline</h1>
+    <section id="timeline" className={"section md:p-0 " + classNames}>
+      <h1 className="heading">
+        <FlyInText text="Timeline" />
+      </h1>
       <p className="desc text-blue-600 font-semibold">{`Time to next stage: ${
         countdown.days
       } Days, ${countdown.hours} Hours, and ${
         countdown.minutes === 0 ? 1 : countdown.minutes
       } minutes.`}</p>
       <Timeline
+        ref={timelineWrapper}
         className="w-max relative m-auto"
         active={events.length - targetDates.length}
         bulletSize={24}
         lineWidth={2}
       >
         {events.map((e, i) => (
-          <Timeline.Item className="desc text-left" title={e}>
+          <Timeline.Item className="timeline-item desc text-left" title={e}>
             <p className="desc text-left" mt={4}>
               {displayDates[i]}
             </p>
