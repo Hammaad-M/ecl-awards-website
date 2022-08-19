@@ -48,11 +48,10 @@ export const rotateInFromBottom = (target, waitForScroll = true) => {
 export const fadeIn = (target, waitForScroll = true, speed = 1) => {
   gsap.from(target, {
     opacity: 0.01,
-    duration: 0.45 / speed,
+    duration: 0.85 / speed,
     stagger: 0.18 / speed,
     y: 120,
     ease: Power3.easeInOut(),
-    delay: 0.1,
     ...handleCustomization(target, waitForScroll),
   });
 };

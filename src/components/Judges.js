@@ -11,10 +11,10 @@ const Judges = ({ content }) => {
     // fadeInSmall(q("*", true, 2));
     gsap.from(q("*"), {
       opacity: 0.01,
-      duration: 0.105,
-      stagger: 0.05,
+      duration: 0.205,
+      stagger: 0.03,
       y: 50,
-      ease: "back",
+      ease: "power3.out",
       delay: 0.1,
       scrollTrigger: {
         trigger: q("*"),

@@ -54,7 +54,7 @@ const Nominations = ({ content }) => {
       duration: 0.11,
       stagger: 0.07,
       y: 50,
-      ease: "back",
+      ease: "power3.out",
       delay: 0.1,
       scrollTrigger: {
         trigger: q("*"),
@@ -65,10 +65,10 @@ const Nominations = ({ content }) => {
     // q("*").forEach((e) => fadeInSmall(e, true, 2.25));
     gsap.from(q("*"), {
       opacity: 0.01,
-      duration: 0.16,
-      stagger: 0.07,
+      duration: 0.2,
+      stagger: 0.02,
       y: 50,
-      ease: "back",
+      ease: "power3.out",
       delay: 0.1,
       scrollTrigger: {
         trigger: q("*"),

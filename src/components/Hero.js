@@ -14,10 +14,10 @@ const Hero = ({ contentRef, content }) => {
   return (
     <section className="hero w-full overflow-hidden relative">
       <div className="animated-bg absolute h-full"></div>
-      {/* <SlidingTextBackground text={"EASTSIDE CIVIC LEADERSHIP AWARDS"} /> */}
+      <SlidingTextBackground text={"EASTSIDE CIVIC LEADERSHIP AWARDS"} />
       <div
         ref={wrapper}
-        className="shadow-md hero-wrapper w-[90%] text-center p-12 rounded-lg bg-white border-none relative m-auto mt-20 sm:w-4/6 xl:p-16"
+        className="shadow-md bg-white hero-wrapper w-[90%] text-center p-12 rounded-lg border-none relative m-auto mt-20 sm:w-4/6 xl:p-16"
       >
         <h1
           ref={contentRef}
