@@ -55,10 +55,10 @@ export default function TimeLine({
     const q = gsap.utils.selector(timelineWrapper);
     gsap.from(q("*"), {
       opacity: 0.01,
-      duration: 0.1,
+      duration: 0.15,
       stagger: 0.06,
       y: 50,
-      ease: "back",
+      ease: "power2.out",
       delay: 0.1,
       scrollTrigger: {
         trigger: q("*"),
